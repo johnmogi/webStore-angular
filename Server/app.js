@@ -5,8 +5,9 @@ const cors = require('cors')
 global.config = require("./config");
 const { port } = require("./config");
 
-server.use(cors());
-// server.use(cors({ origin: "http://localhost:4200", credentials: true }));
+
+//server.use(cors());
+server.use(cors({ origin: "http://localhost:4200", credentials: true }));
 // Need those exact configuration for the session cookie to be saved at client side.
 
 const itemController = require("./controllers/item-controller");
@@ -14,8 +15,9 @@ const authController = require("./controllers/auth-controller");
 const orderController = require("./controllers/order-controller");
 
 
+server.use(express.json());
 server.use('/api/items', itemController);
-server.use('/api/users', authController);
+server.use('/api/auth', authController);
 server.use('/api/orders', orderController);
 
 

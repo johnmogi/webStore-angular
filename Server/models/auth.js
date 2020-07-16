@@ -32,13 +32,13 @@ const AuthSchema = mongoose.Schema({
     username_email: {
         type: String,
         required: true,
-        minlength: 6,
+        minlength: 1,
         maxlength: 40
     },
     password: {
         type: String,
         required: true,
-        minlength: 4
+        minlength: 1
     },
     city: {
         type: String,

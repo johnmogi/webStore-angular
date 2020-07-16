@@ -3,11 +3,10 @@ const router = express.Router();
 const Order = require('../models/order');
 const orderLogic = require('../business-logic/order-logic');
 
-
 router.get('/', async (request, response) => {
     try {
         const orders = await orderLogic.getAllOrders();
-        console.log(orders)
+       // console.log(orders)
         response.json(orders);
     } catch (error) {
         response.status(500).send(error);
@@ -32,6 +31,5 @@ router.get('/', async (request, response) => {
 //         response.status(500).send(error);
 //     }
 // });
-
 
 module.exports = router;
