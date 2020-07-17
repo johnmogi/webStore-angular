@@ -27,6 +27,6 @@ ItemSchema.virtual("category", {
     foreignField: "_id",
     justOne: true
 });
-const Item = mongoose.model("Item", ItemSchema, "items");
+const Item = mongoose.model("Item", ItemSchema, "order-items");
 
 module.exports = Item; 

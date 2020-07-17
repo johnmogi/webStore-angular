@@ -14,7 +14,7 @@ const AuthSchema = mongoose.Schema({
     identification: {
         type: Number,
         required: true,
-        minlength: 9,
+        minlength: 1,
         maxlength: 10
     },
     firstName: {
@@ -54,9 +54,16 @@ const AuthSchema = mongoose.Schema({
     },
     role: {
         type: String,
-        required: true,
-        minlength: 3,
+        required: false,
+        minlength: 1,
         maxlength: 60
+    }
+    ,
+    visitCounter: {
+        type: Number,
+        required: false,
+        minlength: 1,
+        maxlength: 50
     }
 
 }, {
@@ -65,11 +72,13 @@ const AuthSchema = mongoose.Schema({
     id: false
 });
 
-AuthSchema.virtual("cartShop", {
-    ref: "Cart",
-    localField: "_id",
-    foreignField: "userId"
+AuthSchema.virtual("user", {
+    ref: "User",
+    localField: "userId",
+    foreignField: "_id",
+    justOne: true
 });
+
 const User = mongoose.model("User", AuthSchema, "auth-users");
 
 module.exports = User;

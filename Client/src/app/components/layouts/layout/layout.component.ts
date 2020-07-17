@@ -45,10 +45,10 @@ export class LayoutComponent implements OnInit {
     store.subscribe(() => {
       this.products = store.getState().products;
       this.user = store.getState().user; // * -user ready - get cart:
-      if (this.user && this.user.isAdmin) {
+      if (this.user && this.user.role != "Admin") {
         this.isAdmin = true;
       }
-      if (this.user && !this.user.isAdmin) {
+      if (this.user && this.user.role != "Admin") {
         this.isAdmin = false;
 
         if (!this.userOrder) {
@@ -58,7 +58,6 @@ export class LayoutComponent implements OnInit {
           this.fetchCart(this.user.userID);
         }
         this.firstName = this.user.firstName;
-        this.firstVisit = +this.user.firstVisit;
         this.visitCounter = true;
       }
     });

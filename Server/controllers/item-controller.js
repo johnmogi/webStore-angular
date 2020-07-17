@@ -7,7 +7,7 @@ const itemLogic = require('../business-logic/item-logic');
 router.get('/', async (request, response) => {
     try {
         const items = await itemLogic.getAllItems();
-        console.log(items)
+      //  console.log(items)
         response.json(items);
     } catch (error) {
         response.status(500).send(error);

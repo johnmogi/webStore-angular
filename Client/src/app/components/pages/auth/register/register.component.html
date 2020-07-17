@@ -8,11 +8,13 @@
         <mat-label>Identification</mat-label>
         <input
           matInput
-          name="id"
+          type="number"
+          name="identification"
           #idIn="ngModel"
-          minlength="8"
-          [(ngModel)]="addUser.id"
+          minlength="1"
+          [(ngModel)]="addUser.identification"
           placeholder="Identification"
+        
           required
         />
         <mat-error *ngIf="idIn">
@@ -25,7 +27,7 @@
         <input
           matInput
           #emailIn="ngModel"
-          minlength="4"
+          minlength="1"
           placeholder="Ex. pat@example.com"
           name="username_email"
           [(ngModel)]="addUser.username_email"
@@ -50,7 +52,7 @@
           value="94043"
           #passIn
           #passIn="ngModel"
-          minlength="3"
+          minlength="1"
           [(ngModel)]="addUser.password"
           placeholder="Choose password"
           required
@@ -66,7 +68,7 @@
           type="password"
           name="conf_password"
           #confPassIn="ngModel"
-          minlength="3"
+          minlength="1"
           [(ngModel)]="confPass"
           placeholder="Confirm password"
           required

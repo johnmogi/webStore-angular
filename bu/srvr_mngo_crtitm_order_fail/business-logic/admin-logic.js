@@ -6,7 +6,7 @@ function addItem(item) {
 }
 
 function editItem(item) {
-    console.log(item);
+  //  console.log(item);
     return new Promise((resolve, reject) => {
         Item.updateOne({ _id: item._id }, item, (err, info) => {
             if (err) {

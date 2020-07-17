@@ -55,7 +55,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     store.subscribe(() => {
       this.user = store.getState().user; // * -user ready - get active cart:
-      if (this.user && !this.user.isAdmin) {
+      if (this.user && this.user.role != "Admin") {
         this.userID = +this.user.userID;
         this.fetchCart(this.user.userID);
       }

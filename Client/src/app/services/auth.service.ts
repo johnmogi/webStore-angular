@@ -13,9 +13,10 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   public checkUser(auth: {}): Observable<any> {
+ //   console.log(auth)
     return this.http.post<AuthModel>(this.api + 'check-user', auth);
   }
-
+ 
   public regUser(auth: {}): Observable<any> {
     return this.http.post<AuthModel>(this.api + 'register', auth);
   }

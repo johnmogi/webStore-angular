@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
     store.subscribe(() => {
       // call cart and items:
       this.user = store.getState().user; // * -user ready - get active cart:
-      if (this.user && !this.user.isAdmin && !this.cartLoad) {
+      if (this.user && this.user.role != "Admin" && !this.cartLoad) {
         this.fetchCart(this.user.userID);
       }
     });

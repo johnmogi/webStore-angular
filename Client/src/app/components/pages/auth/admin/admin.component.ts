@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
     this.products = store.getState().products;
 
     this.user = store.getState().user;
-    if (this.user === null || !this.user.isAdmin) {
+    if (this.user === null || this.user.role != "Admin") {
       this.router.navigateByUrl('/');
     }
   }

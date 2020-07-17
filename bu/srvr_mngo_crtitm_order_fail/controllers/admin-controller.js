@@ -25,7 +25,7 @@ router.put('/edit-item', async (request, response) => {
         const oldItem = new Item(request.body);
 
         const editedItem = await adminLogic.editItem(oldItem);
-        console.log(editedItem)
+     //   console.log(editedItem)
         if (oldItem === null) { response.sendStatus(404); return; }
         response.json(editedItem);
     } catch (error) {
